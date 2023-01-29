@@ -14,7 +14,7 @@
             margin-top: 20px;
         }
         .review {
-            background: brown;
+            background: black;
             color: burlywood;
             padding: 10px;
             margin-bottom: 20px;
@@ -26,7 +26,8 @@
     </style>
     <div class="product">
         <img src="/media/{{ product.image }}" alt="">
-    <h1>{{ product.title }}</h1>
+    <h5>{{ product.author }}</h5>
+        <h1>{{ product.title }}</h1>
         <h4>{{ product.description }}</h4>
         <h4>Rate: {{ product.rate }}</h4>
         <div class="dates">
@@ -43,6 +44,7 @@
         <div class="reviews">
             {% for review in reviews %}
                 <div class="review">
+                    <h5>{{ review.author.username }}</h5>
                     <h6>{{ review.title }}</h6>
                     <p>{{ review.characteristics }}</p>
                 </div>
