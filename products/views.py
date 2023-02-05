@@ -125,7 +125,7 @@ class ProductDetailView(DetailView):
             'reviews': reviews,
             'form': ReviewCreateForm,
         }
-        return render(request, 'products/detail.html', context=context)
+        return render(request, self.template_name, context=context)
 
     def post(self, request, id):
         product_obj = Product.objects.get(id=id)
@@ -140,7 +140,7 @@ class ProductDetailView(DetailView):
             return redirect(f'/products/{product_obj.id}/')
         else:
             form.add_error('title', 'ti ne zaregan')
-        return render(request, 'products/detail.html', context={
+        return render(request, self.template_name, context={
             'product': product_obj,
             'reviews': reviews,
             'form': form
